@@ -45,4 +45,10 @@ init({ baseUrl })
         await getUserSettings().then(configI18n)
         ReactDOM.render(<App d2={d2} />, document.getElementById('root'))
     })
-    .catch(err => console.error(err))
+    .catch(err => {
+        console.error(err)
+        const message = err.toString().match('Unable to get schemas')
+            ? `No user logged in: ${baseUrl}`
+            : err.toString()
+        ReactDOM.render(<div>{message}</div>, document.getElementById('root'))
+    })

@@ -5,8 +5,35 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-25T09:43:33.778Z\n"
-"PO-Revision-Date: 2018-10-25T09:43:33.778Z\n"
+"POT-Creation-Date: 2018-11-05T13:33:23.289Z\n"
+"PO-Revision-Date: 2018-11-05T13:33:23.289Z\n"
 
-msgid "Hello there"
+msgid "Setting updated"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Enable message email notifications"
+msgstr ""
+
+msgid "Enable message SMS notifications"
+msgstr ""
+
+msgid "OptOut weekly digest email"
+msgstr ""
+
+msgid "OptOut @notification emails"
+msgstr ""
+
+msgid "Notification Settings"
+msgstr ""
+
+msgid "Invalid email"
+msgstr ""
+
+msgid "Invalid phone number"
 msgstr ""
