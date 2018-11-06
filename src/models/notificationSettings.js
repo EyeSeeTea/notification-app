@@ -85,9 +85,7 @@ class NotificationSettings {
             value: newValue.toString(),
         }
         const newAttributeValues = _(user.attributeValues)
-            .filter(
-                attributeValue => attributeValue.attribute.id !== attributeId
-            )
+            .filter(attributeValue => attributeValue.attribute.id !== attributeId)
             .concat([newAttributeValue])
             .value()
         const newUser = { ...user, attributeValues: newAttributeValues }
@@ -100,9 +98,7 @@ class NotificationSettings {
         const { attributes } = await api.get('/attributes', {
             paging: false,
             fields: 'id,code,displayName',
-            filter: `code:in:[${_(this.attributeCodes)
-                .values()
-                .join(',')}]`,
+            filter: `code:in:[${_(this.attributeCodes).values().join(',')}]`,
         })
         return attributes
     }
@@ -111,10 +107,7 @@ class NotificationSettings {
         const user = await api.get('/me')
         const userSettings = await api.get('/userSettings')
         const attributeValuesByCode = _(user.attributeValues)
-            .keyBy(
-                attributeValue =>
-                    attributesById[attributeValue.attribute.id].code
-            )
+            .keyBy(attributeValue => attributesById[attributeValue.attribute.id].code)
             .mapValues('value')
             .value()
         const boolAttribute = stringValue => stringValue === 'true'
@@ -192,10 +185,7 @@ class NotificationSettings {
             )
         } else {
             const attributesById = _.keyBy(attributes, 'id')
-            const settings = await NotificationSettings.getCurrentSettings(
-                api,
-                attributesById
-            )
+            const settings = await NotificationSettings.getCurrentSettings(api, attributesById)
             return new NotificationSettings(d2, attributesById, settings)
         }
     }
