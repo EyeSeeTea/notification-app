@@ -39,13 +39,10 @@ class NotificationsForm extends React.Component {
 
     onUpdateField = async (fieldName, newValue) => {
         const { settings } = this.state
-        const { error, updated, settings: newSettings } = await settings.set(
-            fieldName,
-            newValue
-        )
+        const { error, updated, settings: newSettings } = await settings.set(fieldName, newValue)
 
         if (error) {
-            this.context.error(error.toString())
+            this.context.error(error.message || error.toString())
         } else if (updated) {
             this.context.success(i18n.t('Setting updated'))
         }
@@ -111,6 +108,7 @@ class NotificationsForm extends React.Component {
             name: name,
             component: CheckBox,
             props: {
+                id: "notifications-form-" + name,
                 checked: settings.get(name),
                 label: label,
                 disabled,
@@ -130,6 +128,7 @@ class NotificationsForm extends React.Component {
             component: TextField,
             validators,
             props: {
+                id: "notifications-form-" + name,
                 type: type || 'string',
                 style: this.styles.textField,
                 floatingLabelText: label,
@@ -146,10 +145,10 @@ class NotificationsForm extends React.Component {
             case 'loading':
                 return <CircularProgress />
             case 'error':
-                return <div>{error.toString()}</div>
+                return <div>{error.message || error.toString()}</div>
             case 'loaded':
                 return (
-                    <React.Fragment>
+                    <div className="notifications-form">
                         <Typography gutterBottom variant="h5" component="h2">
                             {i18n.t('Notification Settings')}
                         </Typography>
@@ -158,7 +157,7 @@ class NotificationsForm extends React.Component {
                             fields={this.getFields()}
                             onUpdateField={this.onUpdateField}
                         />
-                    </React.Fragment>
+                    </div>
                 )
             default:
                 throw new Error(`Unknown state: ${state}`)

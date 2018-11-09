@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import HeaderBar from '@dhis2/d2-ui-header-bar'
 
-import { getD2Stub } from '../config/testHelpers'
+import { getD2Stub } from '../utils/testing'
 import App from '../App'
 
 function render({ props } = {}) {

@@ -49,11 +49,7 @@ class NotificationSettings {
                 isValid,
                 error,
                 updated: isValid && !error,
-                settings: new NotificationSettings(
-                    this.d2,
-                    this.attributes,
-                    newSettings
-                ),
+                settings: new NotificationSettings(this.d2, this.attributes, newSettings),
             },
             _.isNull
         )
@@ -90,6 +86,8 @@ class NotificationSettings {
             .value()
         const newUser = { ...user, attributeValues: newAttributeValues }
 
+        // PUT /users/ID works only if the user has the authority F_USER_ADD
+        // Cannot use PUT /me, it does not update attributeValues (DHIS2-5152)
         await this.api.update(`/users/${user.id}`, newUser)
         return this.updateValue(key, newValue)
     }
@@ -107,8 +105,10 @@ class NotificationSettings {
         const user = await api.get('/me')
         const userSettings = await api.get('/userSettings')
         const attributeValuesByCode = _(user.attributeValues)
-            .keyBy(attributeValue => attributesById[attributeValue.attribute.id].code)
-            .mapValues('value')
+            .filter(attributeValue => _(attributesById).has(attributeValue.attribute.id))
+            .map(attributeValue =>
+                [attributesById[attributeValue.attribute.id].code, attributeValue.value])
+            .fromPairs()
             .value()
         const boolAttribute = stringValue => stringValue === 'true'
 

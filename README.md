@@ -20,9 +20,19 @@ $ PORT=8082 REACT_APP_DHIS2_URL="https://play.dhis2.org/dev" yarn start
 
 ## Tests
 
+Unit tests:
+
 ```
 $ yarn test
 ```
+
+Integration tests:
+
+```
+REACT_APP_DHIS2_URL_TEST=http://localhost:8080 REACT_APP_URL_TEST=http://localhost:8081 yarn test:integration
+```
+
+Pass `HEADLESS=false` to see the browser.
 
 ## Build
 

@@ -6,7 +6,7 @@ import JssProvider from 'react-jss/lib/JssProvider'
 import { createGenerateClassName } from '@material-ui/core/styles'
 import OldMuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-import { muiTheme } from './config/dhis2.theme'
+import { muiTheme } from './dhis2.theme'
 import './App.css'
 import SnackbarProvider from './feedback/SnackbarProvider.component'
 import Root from './Root.component'
