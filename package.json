@@ -40,7 +40,7 @@
     "start": "BROWSER=false PORT=${PORT:-8081} react-scripts start",
     "prebuild": "yarn test",
     "build": "rm -rf build/ && react-scripts build && yarn run manifest && cp -r i18n icon.png build",
-    "build-webapp": "yarn build && rm -f $npm_package_name.zip && cd build && zip -r ../$npm_package_name.zip *",
+    "build-webapp": "yarn build && rm -f Notifications.zip && cd build && zip -r ../Notifications.zip *",
     "test": "jest",
     "test:integration": "jest -c integration/jest.config.js",
     "test:all": "yarn test && yarn test:integration",
@@ -48,7 +48,7 @@
     "eject": "react-scripts eject",
     "prettify": "prettier \"src/**/*.{js,jsx,json,css}\" --write",
     "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
-    "localize": "yarn extract-pot && d2-i18n-generate -n notifications-app -p ./i18n/ -o ./src/locales/",
+    "localize": "yarn extract-pot && d2-i18n-generate -n $npm_package_name -p ./i18n/ -o ./src/locales/",
     "update-po": "yarn extract-pot && for pofile in i18n/*.po; do msgmerge --backup=off -U $pofile i18n/en.pot; done",
     "manifest": "d2-manifest package.json build/manifest.webapp",
     "format": "code-style"
