@@ -186,15 +186,14 @@ class NotificationSettings {
     static async load(d2) {
         const api = d2.Api.getApi()
         const attributes = await NotificationSettings.getAttributes(api)
-        const missingAttributes = _(NotificationSettings.attributeCodes)
+        const missingAttributeCodes = _(NotificationSettings.attributeCodes)
             .values()
             .difference(attributes.map(attr => attr.code))
             .value()
 
-        if (!_(missingAttributes).isEmpty()) {
-            throw new Error(
-                `Attributes not found: ${missingAttributes.join(', ')}`
-            )
+        if (!_(missingAttributeCodes).isEmpty()) {
+            const message = missingAttributeCodes.map(attr => `code=${attr}`).join(', ')
+            throw new Error(`Required attributes not found: ${message}`)
         } else {
             const attributesById = _.keyBy(attributes, 'id')
             const settings = await NotificationSettings.getCurrentSettings(
