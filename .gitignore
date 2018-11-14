@@ -18,9 +18,12 @@ manifest.webapp
 .env.production.local
 *.sublime-project
 *.sublime-workspace
+bak/
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 src/locales/
+
+notifications-app.zip

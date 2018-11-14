@@ -17,12 +17,19 @@ class MockSettings {
     }
 
     get(key) {
-        return this.settings[key];
+        return this.settings[key]
     }
 
     set(key, newValue) {
-        const newSettings = new MockSettings({ ...this.settings, [key]: newValue })
-        return Promise.resolve({ isValid: true, updated: true, settings: newSettings });
+        const newSettings = new MockSettings({
+            ...this.settings,
+            [key]: newValue,
+        })
+        return Promise.resolve({
+            isValid: true,
+            updated: true,
+            settings: newSettings,
+        })
     }
 }
 
@@ -31,15 +38,15 @@ let component
 describe('NotificationsForm', () => {
     beforeAll(() => {
         const settings = new MockSettings({
-            email: "user@server.org",
+            email: 'user@server.org',
             emailNotifications: true,
             noMentionNotifications: false,
             noNewsletters: false,
-            phone: "1234",
+            phone: '1234',
             smsNotifications: false,
         })
 
-        notificationSettings.load = jest.fn(() => Promise.resolve(settings));
+        notificationSettings.load = jest.fn(() => Promise.resolve(settings))
         component = render()
     })
 
@@ -51,23 +58,25 @@ describe('NotificationsForm', () => {
 
     describe('when mounted', () => {
         beforeAll(async () => {
-            component.update();
+            component.update()
         })
 
-        it("renders form builder", () => {
+        it('renders form builder', () => {
             expect(component.find(FormBuilder)).toHaveLength(1)
         })
 
-        describe("on field updated", () => {
+        describe('on field updated', () => {
             beforeAll(async () => {
-                const formBuilder = component.find(FormBuilder);
-                await formBuilder.props().onUpdateField("email", "email-new@server.org")
+                const formBuilder = component.find(FormBuilder)
+                await formBuilder
+                    .props()
+                    .onUpdateField('email', 'email-new@server.org')
             })
 
-            it("updates settings", () => {
-                const { settings } = component.find(NotificationsForm).state();
-                expect(settings.get("email")).toEqual("email-new@server.org")
-            });
+            it('updates settings', () => {
+                const { settings } = component.find(NotificationsForm).state()
+                expect(settings.get('email')).toEqual('email-new@server.org')
+            })
         })
     })
 })

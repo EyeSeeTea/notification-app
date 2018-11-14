@@ -1,46 +1,44 @@
 ## Development
 
-Setup:
+### Setup
 
 ```
 $ yarn install
 ```
 
-Start development server:
+### Development server
 
 ```
-$ yarn start
-```
-
-This will open the development server at port 8081 and will connect to DHIS 2 instance http://localhost:8080.
-
-Use custom values passing environment variables. An example:
-
 $ PORT=8082 REACT_APP_DHIS2_URL="https://play.dhis2.org/dev" yarn start
+```
 
 ## Tests
 
-Unit tests:
+### Unit tests
 
 ```
 $ yarn test
 ```
 
-Integration tests:
+### Integration tests
+
+This will start a local server at port 9000 and use play DEV as backend:
 
 ```
-REACT_APP_DHIS2_URL_TEST=http://localhost:8080 REACT_APP_URL_TEST=http://localhost:8081 yarn test:integration
+HEADLESS=false \
+    REACT_APP_DHIS2_URL_TEST=https://play.dhis2.org/dev \
+    REACT_APP_URL_TEST=http://localhost:9000 \
+    START_SERVER=true \
+    yarn test:integration
 ```
 
-Pass `HEADLESS=false` to see the browser.
-
-## Build
+## Build distributable ZIP
 
 ```
 $ yarn build-webapp
 ```
 
-## i18n
+## Translations
 
 ### Update an existing language
 

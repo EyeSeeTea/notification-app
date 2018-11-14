@@ -39,7 +39,10 @@ class NotificationsForm extends React.Component {
 
     onUpdateField = async (fieldName, newValue) => {
         const { settings } = this.state
-        const { error, updated, settings: newSettings } = await settings.set(fieldName, newValue)
+        const { error, updated, settings: newSettings } = await settings.set(
+            fieldName,
+            newValue
+        )
 
         if (error) {
             this.context.error(error.message || error.toString())
@@ -108,7 +111,7 @@ class NotificationsForm extends React.Component {
             name: name,
             component: CheckBox,
             props: {
-                id: "notifications-form-" + name,
+                id: 'notifications-form-' + name,
                 checked: settings.get(name),
                 label: label,
                 disabled,
@@ -128,7 +131,7 @@ class NotificationsForm extends React.Component {
             component: TextField,
             validators,
             props: {
-                id: "notifications-form-" + name,
+                id: 'notifications-form-' + name,
                 type: type || 'string',
                 style: this.styles.textField,
                 floatingLabelText: label,
