@@ -36,9 +36,9 @@ async function getBaseUrl() {
     if (process.env.NODE_ENV === 'development') {
         const envVariable = 'REACT_APP_DHIS2_URL'
         const defaultServer = 'http://localhost:8080'
-        const baseUrl = (process.env[envVariable] || defaultServer)
+        const baseUrl = process.env[envVariable] || defaultServer
         console.info(`[DEV] DHIS2 instance: ${baseUrl}`)
-        return baseUrl;
+        return baseUrl
     } else {
         const manifest = await getManifest('./manifest.webapp')
         return manifest.getBaseUrl()
@@ -46,13 +46,17 @@ async function getBaseUrl() {
 }
 
 function loadHeaderBarTranslations(d2) {
-    const keys = _(["app_search_placeholder", "manage_my_apps", "no_results_found"])
+    const keys = _([
+        'app_search_placeholder',
+        'manage_my_apps',
+        'no_results_found',
+    ])
     keys.each(s => d2.i18n.strings.add(s))
     d2.i18n.load()
 }
 
 async function main() {
-    const baseUrl = await getBaseUrl();
+    const baseUrl = await getBaseUrl()
     const apiUrl = baseUrl.replace(/\/*$/, '') + '/api'
     try {
         const d2 = await init({ baseUrl: apiUrl })
@@ -63,11 +67,18 @@ async function main() {
         ReactDOM.render(<App d2={d2} />, document.getElementById('root'))
     } catch (err) {
         console.error(err)
-        const message = err.toString().match('Unable to get schemas')
-            ? <div><a rel="noopener noreferrer" target="_blank" href={baseUrl}>Login</a> {baseUrl}</div>
-            : err.toString()
+        const message = err.toString().match('Unable to get schemas') ? (
+            <div>
+                <a rel="noopener noreferrer" target="_blank" href={baseUrl}>
+                    Login
+                </a>{' '}
+                {baseUrl}
+            </div>
+        ) : (
+            err.toString()
+        )
         ReactDOM.render(<div>{message}</div>, document.getElementById('root'))
     }
 }
 
-main();
+main()

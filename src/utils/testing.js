@@ -11,6 +11,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles'
 
 import { muiTheme } from '../dhis2.theme'
 import SnackbarProvider from '../feedback/SnackbarProvider.component'
+import jestPuppeteerConfig from '../../jest-puppeteer.config'
 
 // DHIS2 expects a browser environment, add some required keys to the global node namespace
 Object.assign(global, {
@@ -58,14 +59,8 @@ const systemAuth = {
     password: 'System123',
 }
 
-function getTestUrl(dhis2UrlTestEnvironmentVariableName) {
-    const url = process.env[dhis2UrlTestEnvironmentVariableName]
-    if (!url) throw new Error(`Set ${dhis2UrlTestEnvironmentVariableName}`)
-    return process.env[dhis2UrlTestEnvironmentVariableName].replace(/\/*$/, '')
-}
-
 export async function initD2({ auth }) {
-    const baseUrl = getTestUrl('REACT_APP_DHIS2_URL_TEST') + '/api'
+    const baseUrl = jestPuppeteerConfig.config.dhis2Url + '/api'
     const api = new Api(fetch)
     const { username, password } = auth
     api.setDefaultHeaders({
@@ -78,8 +73,8 @@ export async function initD2({ auth }) {
 }
 
 export async function getPage(path, { auth }) {
-    const dhis2Url = getTestUrl('REACT_APP_DHIS2_URL_TEST')
-    const appUrl = getTestUrl('REACT_APP_URL_TEST') + path
+    const dhis2Url = jestPuppeteerConfig.config.dhis2Url + '/api'
+    const appUrl = jestPuppeteerConfig.config.appUrl + path
 
     try {
         const browser = global.browser // Provided by jest-puppeteer

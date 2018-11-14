@@ -192,7 +192,9 @@ class NotificationSettings {
             .value()
 
         if (!_(missingAttributeCodes).isEmpty()) {
-            const message = missingAttributeCodes.map(attr => `code=${attr}`).join(', ')
+            const message = missingAttributeCodes
+                .map(attr => `code=${attr}`)
+                .join(', ')
             throw new Error(`Required attributes not found: ${message}`)
         } else {
             const attributesById = _.keyBy(attributes, 'id')
