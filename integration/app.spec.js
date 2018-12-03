@@ -39,7 +39,7 @@ function getAttributeValue(user, attributes, code) {
 
 let testing, attributes
 
-describe('Notifications App', () => {
+describe('App', () => {
     beforeAll(async () => {
         testing = await initDhis2App('/', {
             auth,

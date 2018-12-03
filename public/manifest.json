@@ -1,6 +1,6 @@
 {
-    "short_name": "Notifications App",
-    "name": "DHIS2 Notifications App",
+    "short_name": "Notifications",
+    "name": "DHIS2 Notifications",
     "icons": [
         {
             "src": "favicon.ico",

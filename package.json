@@ -1,5 +1,5 @@
 {
-  "name": "notifications-app",
+  "name": "notification-app",
   "description": "DHIS2 App Skeleton",
   "version": "0.0.1",
   "license": "GPL-3.0",
@@ -7,7 +7,7 @@
   "homepage": "./",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eyeseetea/notifications-app.git"
+    "url": "git+https://github.com/eyeseetea/notification-app.git"
   },
   "dependencies": {
     "@dhis2/d2-i18n": "^1.0.4",
