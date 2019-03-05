@@ -1,7 +1,7 @@
 {
   "name": "notification-app",
-  "description": "DHIS2 App Skeleton",
-  "version": "0.0.1",
+  "description": "PSI Notification Settings app",
+  "version": "0.0.2",
   "license": "GPL-3.0",
   "author": "EyeSeeTea team",
   "homepage": "./",
@@ -64,8 +64,8 @@
     "babel-core": "7.0.0-bridge.0"
   },
   "manifest.webapp": {
-    "name": "Notifications",
-    "description": "Notifications App",
+    "name": "Notification Settings",
+    "description": "PSI Notification Settings app",
     "icons": {
       "48": "icon.png"
     },

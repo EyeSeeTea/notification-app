@@ -1,6 +1,6 @@
 {
-    "short_name": "Notifications",
-    "name": "DHIS2 Notifications",
+    "short_name": "Notification Settings",
+    "name": "PSI Notification Settings app",
     "icons": [
         {
             "src": "favicon.ico",

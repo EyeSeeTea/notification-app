@@ -29,8 +29,8 @@ msgstr "Desactictivar correo de resumen semanal"
 msgid "OptOut @notification emails"
 msgstr "Desactivar @menciones"
 
-msgid "Notification Settings"
-msgstr "Configuración de notificaciones"
+msgid "PSI Notification Settings app"
+msgstr "Aplicación de configuración de notificaciones PSI"
 
 msgid "Invalid email"
 msgstr "E-mail inválido"

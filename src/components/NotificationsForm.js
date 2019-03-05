@@ -153,7 +153,7 @@ class NotificationsForm extends React.Component {
                 return (
                     <div className="notifications-form">
                         <Typography gutterBottom variant="h5" component="h2">
-                            {i18n.t('Notification Settings')}
+                            {i18n.t('PSI Notification Settings app')}
                         </Typography>
 
                         <FormBuilder
