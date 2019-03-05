@@ -29,7 +29,7 @@ msgstr ""
 msgid "OptOut @notification emails"
 msgstr ""
 
-msgid "Notification Settings"
+msgid "PSI Notification Settings app"
 msgstr ""
 
 msgid "Invalid email"
