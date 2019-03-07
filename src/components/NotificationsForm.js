@@ -64,8 +64,6 @@ class NotificationsForm extends React.Component {
     }
 
     getFirstSectionFields() {
-        const { settings } = this.state
-
         return _([
             this.getTextField({
                 name: 'email',
@@ -124,7 +122,8 @@ class NotificationsForm extends React.Component {
                         <Typography gutterBottom variant="body2">
                             {i18n.t('We will not forward direct @mentions to your inbox')}
                         </Typography>
-                    </div>
+                    </div>,
+                disabled: settings.get('emailNotifications'),
             }),
 
             this.getBooleanField({
