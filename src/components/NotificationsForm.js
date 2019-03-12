@@ -27,10 +27,11 @@ class NotificationsForm extends React.Component {
     }
 
     styles = {
-        cardContent: { width: 800 },
+        cardContent: { width: 800, marginLeft: 10, marginTop: 5 },
         textField: { width: '100%' },
+        title: { fontWeight: 'bold', marginBottom: 0 },
         subtitle2: { fontWeight: 'bold' },
-        marginTop: { marginTop: '20px'}
+        subtitle1: { fontWeight: 'bold', marginTop: '30px'}
     }
 
     state = {
@@ -194,7 +195,7 @@ class NotificationsForm extends React.Component {
             case 'loaded':
                 return (
                     <div className="notifications-form">
-                        <Typography gutterBottom variant="h5" component="h2">
+                        <Typography gutterBottom variant="h5" component="h2" style={this.styles.title}>
                             {i18n.t('PSI Notification Settings app')}
                         </Typography>
 
@@ -202,7 +203,7 @@ class NotificationsForm extends React.Component {
                             fields={this.getFirstSectionFields()}
                             onUpdateField={this.onUpdateField}
                         />
-                        <Typography gutterBottom variant="h6" component="h3" style={this.styles.marginTop}>
+                        <Typography gutterBottom variant="h6" component="h3" style={this.styles.subtitle1}>
                             {i18n.t('DHIS Message forwarding')}
                         </Typography>
                         <Typography gutterBottom variant="subtitle1">
