@@ -29,7 +29,8 @@ class NotificationsForm extends React.Component {
     styles = {
         cardContent: { width: 800 },
         textField: { width: '100%' },
-        subtitle2: { fontWeight: 'bold' }
+        subtitle2: { fontWeight: 'bold' },
+        marginTop: { marginTop: '20px'}
     }
 
     state = {
@@ -201,7 +202,7 @@ class NotificationsForm extends React.Component {
                             fields={this.getFirstSectionFields()}
                             onUpdateField={this.onUpdateField}
                         />
-                        <Typography gutterBottom variant="h6" component="h3">
+                        <Typography gutterBottom variant="h6" component="h3" style={this.styles.marginTop}>
                             {i18n.t('DHIS Message forwarding')}
                         </Typography>
                         <Typography gutterBottom variant="subtitle1">
