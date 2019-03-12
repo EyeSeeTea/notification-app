@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-03-07T06:09:03.347Z\n"
+"POT-Creation-Date: 2019-03-11T15:45:31.817Z\n"
 "PO-Revision-Date: 2018-11-05T13:33:23.289Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgid ""
 "objects, system notification, validation notifications, etc."
 msgstr ""
 
-msgid "Ot-Out of @mention email notifications"
+msgid "Opt-Out of @mention email notifications"
 msgstr ""
 
 msgid "We will not forward direct @mentions to your inbox"
@@ -50,6 +50,15 @@ msgid ""
 msgstr ""
 
 msgid "PSI Notification Settings app"
+msgstr ""
+
+msgid "DHIS Message forwarding"
+msgstr ""
+
+msgid "DHIS can forward some or all of the messages that are sent to your "
+msgstr ""
+
+msgid "DHIS messages inbox"
 msgstr ""
 
 msgid "Invalid email"

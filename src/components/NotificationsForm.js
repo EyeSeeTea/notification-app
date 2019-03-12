@@ -29,6 +29,7 @@ class NotificationsForm extends React.Component {
     styles = {
         cardContent: { width: 800 },
         textField: { width: '100%' },
+        subtitle2: { fontWeight: 'bold' }
     }
 
     state = {
@@ -90,7 +91,7 @@ class NotificationsForm extends React.Component {
                 name: 'emailNotifications',
                 label:
                     <div>
-                        <Typography gutterBottom variant="subtitle2">
+                        <Typography gutterBottom variant="subtitle2" style={this.styles.subtitle2}>
                             {i18n.t('Enable email forwarding (All)')}
                         </Typography>
                         <Typography gutterBottom variant="body2">
@@ -103,7 +104,7 @@ class NotificationsForm extends React.Component {
                 name: 'smsNotifications',
                 label:
                     <div>
-                        <Typography gutterBottom variant="subtitle2">
+                        <Typography gutterBottom variant="subtitle2" style={this.styles.subtitle2}>
                             {i18n.t('Enable SMS forwarding (All)')}
                         </Typography>
                         <Typography gutterBottom variant="body2">
@@ -116,8 +117,8 @@ class NotificationsForm extends React.Component {
                 name: 'noMentionNotifications',
                 label:
                     <div>
-                        <Typography gutterBottom variant="subtitle2">
-                            {i18n.t('Ot-Out of @mention email notifications')}
+                        <Typography gutterBottom variant="subtitle2" style={this.styles.subtitle2}>
+                            {i18n.t('Opt-Out of @mention email notifications')}
                         </Typography>
                         <Typography gutterBottom variant="body2">
                             {i18n.t('We will not forward direct @mentions to your inbox')}
@@ -130,7 +131,7 @@ class NotificationsForm extends React.Component {
                 name: 'noNewsletters',
                 label:
                     <div>
-                        <Typography gutterBottom variant="subtitle2">
+                        <Typography gutterBottom variant="subtitle2" style={this.styles.subtitle2}>
                             {i18n.t('Opt-Out of Weekly digest email')}
                         </Typography>
                         <Typography gutterBottom variant="body2">
@@ -201,11 +202,11 @@ class NotificationsForm extends React.Component {
                             onUpdateField={this.onUpdateField}
                         />
                         <Typography gutterBottom variant="h6" component="h3">
-                            {'DHIS Message forwarding'}
+                            {i18n.t('DHIS Message forwarding')}
                         </Typography>
                         <Typography gutterBottom variant="subtitle1">
-                            {'DHIS can forward some or all of the messages that are sent to your '}
-                            <a href="/dhis-web-messaging">{'DHIS messages inbox'}</a>
+                            {i18n.t('DHIS can forward some or all of the messages that are sent to your ')}
+                            <a href="/dhis-web-messaging">{i18n.t('DHIS messages inbox')}</a>
                         </Typography>
                         <FormBuilder
                             fields={this.getLastSectionFields()}
