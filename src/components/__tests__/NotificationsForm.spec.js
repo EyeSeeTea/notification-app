@@ -62,12 +62,12 @@ describe('NotificationsForm', () => {
         })
 
         it('renders form builder', () => {
-            expect(component.find(FormBuilder)).toHaveLength(1)
+            expect(component.find(FormBuilder)).toHaveLength(2)
         })
 
         describe('on field updated', () => {
             beforeAll(async () => {
-                const formBuilder = component.find(FormBuilder)
+                const formBuilder = component.find(FormBuilder).first()
                 await formBuilder
                     .props()
                     .onUpdateField('email', 'email-new@server.org')
