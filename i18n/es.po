@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-11-05T13:33:23.289Z\n"
+"POT-Creation-Date: 2019-03-11T15:45:31.817Z\n"
 "PO-Revision-Date: 2018-10-25T09:02:35.143Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,23 +17,68 @@ msgstr "E-mail"
 msgid "Phone"
 msgstr "Número de teléfono móvil"
 
-msgid "Enable message email notifications"
+msgid "Enable email forwarding (All)"
+msgstr "Habilitar el reenvío de correo electrónico (Todos)"
+
+msgid ""
+"You will receive a copy of ALL messages sent to your DHIS inbox. This "
+"includes mentions, new interpretations and comments to subcribed objects, "
+"system notification, validation notifications, etc."
+msgstr ""
+"Recibirá una copia de TODOS los mensajes enviados a su bandeja de entrada de DHIS. Esto "
+"incluye menciones, nuevas interpretaciones y comentarios a los objetos suscritos,"
+"notificación del sistema, notificaciones de validación, etc."
+
+msgid "Enable SMS forwarding (All)"
+msgstr "Habilitar reenvío de SMS (Todos)"
+
+msgid ""
+"You will receive a SMS notification for ALL messages sent to your DHIS "
+"inbox. This includes mentions, new interpretations and comments to subcribed "
+"objects, system notification, validation notifications, etc."
+msgstr ""
+"Recibirá una notificación por SMS para TODOS los mensajes enviados a su "
+"bandeja de entrada de DHIS. Esto incluye menciones, nuevas interpretaciones y comentarios a los objetos ".
+"suscritos, notificación del sistema, notificaciones de validación, etc."
+
+#, fuzzy
+msgid "Opt-Out of @mention email notifications"
 msgstr "Habilitar notificaciones por correo-e"
 
-msgid "Enable message SMS notifications"
-msgstr "Habilitar notificaciones para SMS"
+msgid "We will not forward direct @mentions to your inbox"
+msgstr "No reenviaremos @mentions directos a su bandeja de entrada."
 
-msgid "OptOut weekly digest email"
+#, fuzzy
+msgid "Opt-Out of Weekly digest email"
 msgstr "Desactictivar correo de resumen semanal"
 
-msgid "OptOut @notification emails"
-msgstr "Desactivar @menciones"
+msgid ""
+"By Default, all users receive a weekly digest for all favorites that they "
+"have subscribed to. You can opt-out from receiving this weekly digest"
+msgstr ""
+"Por defecto, todos los usuarios reciben un resumen semanal de todos los favoritos a los que ellos "
+"se han suscrito. Puede optar por no recibir este resumen semanal"
 
 msgid "PSI Notification Settings app"
 msgstr "Aplicación de configuración de notificaciones PSI"
+
+msgid "DHIS Message forwarding"
+msgstr "Reenvío de mensajes DHIS"
+
+msgid "DHIS can forward some or all of the messages that are sent to your "
+msgstr "DHIS puede reenviar algunos o todos los mensajes que se envían a su "
+
+msgid "DHIS messages inbox"
+msgstr "bandeja de entrada DHIS"
 
 msgid "Invalid email"
 msgstr "E-mail inválido"
 
 msgid "Invalid phone number"
 msgstr "Número inválido"
+
+#~ msgid "Enable message SMS notifications"
+#~ msgstr "Habilitar notificaciones para SMS"
+
+#~ msgid "OptOut @notification emails"
+#~ msgstr "Desactivar @menciones"
