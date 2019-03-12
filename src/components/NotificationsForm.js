@@ -27,8 +27,11 @@ class NotificationsForm extends React.Component {
     }
 
     styles = {
-        cardContent: { width: 800 },
+        cardContent: { width: 800, marginLeft: 10, marginTop: 5 },
         textField: { width: '100%' },
+        title: { fontWeight: 'bold', marginBottom: 0 },
+        subtitle2: { fontWeight: 'bold' },
+        subtitle1: { fontWeight: 'bold', marginTop: '30px'}
     }
 
     state = {
@@ -63,9 +66,7 @@ class NotificationsForm extends React.Component {
         }
     }
 
-    getFields() {
-        const { settings } = this.state
-
+    getFirstSectionFields() {
         return _([
             this.getTextField({
                 name: 'email',
@@ -78,31 +79,73 @@ class NotificationsForm extends React.Component {
                 label: i18n.t('Phone'),
                 validators: validators.phone,
             }),
-
-            this.getBooleanField({
-                name: 'emailNotifications',
-                label: i18n.t('Enable message email notifications'),
-            }),
-
-            this.getBooleanField({
-                name: 'smsNotifications',
-                label: i18n.t('Enable message SMS notifications'),
-            }),
-
-            this.getBooleanField({
-                name: 'noNewsletters',
-                label: i18n.t('OptOut weekly digest email'),
-            }),
-
-            this.getBooleanField({
-                name: 'noMentionNotifications',
-                label: i18n.t('OptOut @notification emails'),
-                disabled: settings.get('emailNotifications'),
-            }),
         ])
             .compact()
             .value()
     }
+
+    getLastSectionFields() {
+        const { settings } = this.state
+
+        return _([
+
+            this.getBooleanField({
+                name: 'emailNotifications',
+                label:
+                    <div>
+                        <Typography gutterBottom variant="subtitle2" style={this.styles.subtitle2}>
+                            {i18n.t('Enable email forwarding (All)')}
+                        </Typography>
+                        <Typography gutterBottom variant="body2">
+                            {i18n.t('You will receive a copy of ALL messages sent to your DHIS inbox. This includes mentions, new interpretations and comments to subcribed objects, system notification, validation notifications, etc.')}
+                        </Typography>
+                    </div>
+            }),
+
+            this.getBooleanField({
+                name: 'smsNotifications',
+                label:
+                    <div>
+                        <Typography gutterBottom variant="subtitle2" style={this.styles.subtitle2}>
+                            {i18n.t('Enable SMS forwarding (All)')}
+                        </Typography>
+                        <Typography gutterBottom variant="body2">
+                            {i18n.t('You will receive a SMS notification for ALL messages sent to your DHIS inbox. This includes mentions, new interpretations and comments to subcribed objects, system notification, validation notifications, etc.')}
+                        </Typography>
+                    </div>
+            }),
+
+            this.getBooleanField({
+                name: 'noMentionNotifications',
+                label:
+                    <div>
+                        <Typography gutterBottom variant="subtitle2" style={this.styles.subtitle2}>
+                            {i18n.t('Opt-Out of @mention email notifications')}
+                        </Typography>
+                        <Typography gutterBottom variant="body2">
+                            {i18n.t('We will not forward direct @mentions to your inbox')}
+                        </Typography>
+                    </div>,
+                disabled: settings.get('emailNotifications'),
+            }),
+
+            this.getBooleanField({
+                name: 'noNewsletters',
+                label:
+                    <div>
+                        <Typography gutterBottom variant="subtitle2" style={this.styles.subtitle2}>
+                            {i18n.t('Opt-Out of Weekly digest email')}
+                        </Typography>
+                        <Typography gutterBottom variant="body2">
+                            {i18n.t('By Default, all users receive a weekly digest for all favorites that they have subscribed to. You can opt-out from receiving  this weekly digest')}
+                        </Typography>
+                    </div>
+            })
+        ])
+            .compact()
+            .value()
+    }
+
 
     getBooleanField({ name, label, disabled = false }) {
         const { settings } = this.state
@@ -152,12 +195,23 @@ class NotificationsForm extends React.Component {
             case 'loaded':
                 return (
                     <div className="notifications-form">
-                        <Typography gutterBottom variant="h5" component="h2">
-                            {i18n.t('Notification Settings')}
+                        <Typography gutterBottom variant="h5" component="h2" style={this.styles.title}>
+                            {i18n.t('PSI Notification Settings app')}
                         </Typography>
 
                         <FormBuilder
-                            fields={this.getFields()}
+                            fields={this.getFirstSectionFields()}
+                            onUpdateField={this.onUpdateField}
+                        />
+                        <Typography gutterBottom variant="h6" component="h3" style={this.styles.subtitle1}>
+                            {i18n.t('DHIS Message forwarding')}
+                        </Typography>
+                        <Typography gutterBottom variant="subtitle1">
+                            {i18n.t('DHIS can forward some or all of the messages that are sent to your ')}
+                            <a href="/dhis-web-messaging">{i18n.t('DHIS messages inbox')}</a>
+                        </Typography>
+                        <FormBuilder
+                            fields={this.getLastSectionFields()}
                             onUpdateField={this.onUpdateField}
                         />
                     </div>

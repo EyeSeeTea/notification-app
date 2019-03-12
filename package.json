@@ -1,13 +1,13 @@
 {
-  "name": "notifications-app",
-  "description": "DHIS2 App Skeleton",
-  "version": "0.0.1",
+  "name": "notification-app",
+  "description": "PSI Notification Settings app",
+  "version": "0.0.2",
   "license": "GPL-3.0",
   "author": "EyeSeeTea team",
   "homepage": "./",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eyeseetea/notifications-app.git"
+    "url": "git+https://github.com/eyeseetea/notification-app.git"
   },
   "dependencies": {
     "@dhis2/d2-i18n": "^1.0.4",
@@ -64,8 +64,8 @@
     "babel-core": "7.0.0-bridge.0"
   },
   "manifest.webapp": {
-    "name": "Notifications",
-    "description": "Notifications App",
+    "name": "Notification Settings",
+    "description": "PSI Notification Settings app",
     "icons": {
       "48": "icon.png"
     },
