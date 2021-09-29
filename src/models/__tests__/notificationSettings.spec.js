@@ -175,7 +175,8 @@ describe('load', () => {
 
     describe('set emailNotifications', () => {
         beforeEach(() =>
-            stubApiSetUserSettings('keyMessageEmailNotification', false))
+            stubApiSetUserSettings('keyMessageEmailNotification', false)
+        )
 
         it('persists the value and return new settings', async () => {
             const {
@@ -192,7 +193,8 @@ describe('load', () => {
 
     describe('set smsNotifications', () => {
         beforeEach(() =>
-            stubApiSetUserSettings('keyMessageSmsNotification', false))
+            stubApiSetUserSettings('keyMessageSmsNotification', false)
+        )
 
         it('persists the value and return new settings', async () => {
             const {
