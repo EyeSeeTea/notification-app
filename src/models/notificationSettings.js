@@ -59,6 +59,22 @@ class NotificationSettings {
         )
     }
 
+    updateValidation({ error = null, isValid = true } = {}) {
+        return _.omitBy(
+            {
+                isValid,
+                error,
+                updated: isValid && !error,
+                settings: new NotificationSettings(
+                    this.d2,
+                    this.attributes,
+                    this.settings
+                ),
+            },
+            _.isNull
+        )
+    }
+
     async updateUserSetting(key, newValue) {
         const userSettingKey = NotificationSettings.userSettings[key]
         const url = `/userSettings/${userSettingKey}`
@@ -177,7 +193,7 @@ class NotificationSettings {
             )
         } else {
             return this._set(key, newValue).catch(err =>
-                this.updateValue(key, newValue, { error: err })
+                this.updateValidation({ error: err })
             )
         }
     }

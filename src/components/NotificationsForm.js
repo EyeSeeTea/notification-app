@@ -31,7 +31,7 @@ class NotificationsForm extends React.Component {
         textField: { width: '100%' },
         title: { fontWeight: 'bold', marginBottom: 0 },
         subtitle2: { fontWeight: 'bold' },
-        subtitle1: { fontWeight: 'bold', marginTop: '30px'}
+        subtitle1: { fontWeight: 'bold', marginTop: '30px' },
     }
 
     state = {
@@ -88,64 +88,90 @@ class NotificationsForm extends React.Component {
         const { settings } = this.state
 
         return _([
-
             this.getBooleanField({
                 name: 'emailNotifications',
-                label:
+                label: (
                     <div>
-                        <Typography gutterBottom variant="subtitle2" style={this.styles.subtitle2}>
+                        <Typography
+                            gutterBottom
+                            variant="subtitle2"
+                            style={this.styles.subtitle2}
+                        >
                             {i18n.t('Enable email forwarding (All)')}
                         </Typography>
                         <Typography gutterBottom variant="body2">
-                            {i18n.t('You will receive a copy of ALL messages sent to your DHIS inbox. This includes mentions, new interpretations and comments to subcribed objects, system notification, validation notifications, etc.')}
+                            {i18n.t(
+                                'You will receive a copy of ALL messages sent to your DHIS inbox. This includes mentions, new interpretations and comments to subcribed objects, system notification, validation notifications, etc.'
+                            )}
                         </Typography>
                     </div>
+                ),
             }),
 
             this.getBooleanField({
                 name: 'smsNotifications',
-                label:
+                label: (
                     <div>
-                        <Typography gutterBottom variant="subtitle2" style={this.styles.subtitle2}>
+                        <Typography
+                            gutterBottom
+                            variant="subtitle2"
+                            style={this.styles.subtitle2}
+                        >
                             {i18n.t('Enable SMS forwarding (All)')}
                         </Typography>
                         <Typography gutterBottom variant="body2">
-                            {i18n.t('You will receive a SMS notification for ALL messages sent to your DHIS inbox. This includes mentions, new interpretations and comments to subcribed objects, system notification, validation notifications, etc.')}
+                            {i18n.t(
+                                'You will receive a SMS notification for ALL messages sent to your DHIS inbox. This includes mentions, new interpretations and comments to subcribed objects, system notification, validation notifications, etc.'
+                            )}
                         </Typography>
                     </div>
+                ),
             }),
 
             this.getBooleanField({
                 name: 'noMentionNotifications',
-                label:
+                label: (
                     <div>
-                        <Typography gutterBottom variant="subtitle2" style={this.styles.subtitle2}>
+                        <Typography
+                            gutterBottom
+                            variant="subtitle2"
+                            style={this.styles.subtitle2}
+                        >
                             {i18n.t('Opt-Out of @mention email notifications')}
                         </Typography>
                         <Typography gutterBottom variant="body2">
-                            {i18n.t('We will not forward direct @mentions to your inbox')}
+                            {i18n.t(
+                                'We will not forward direct @mentions to your inbox'
+                            )}
                         </Typography>
-                    </div>,
+                    </div>
+                ),
                 disabled: settings.get('emailNotifications'),
             }),
 
             this.getBooleanField({
                 name: 'noNewsletters',
-                label:
+                label: (
                     <div>
-                        <Typography gutterBottom variant="subtitle2" style={this.styles.subtitle2}>
+                        <Typography
+                            gutterBottom
+                            variant="subtitle2"
+                            style={this.styles.subtitle2}
+                        >
                             {i18n.t('Opt-Out of Weekly digest email')}
                         </Typography>
                         <Typography gutterBottom variant="body2">
-                            {i18n.t('By Default, all users receive a weekly digest for all favorites that they have subscribed to. You can opt-out from receiving  this weekly digest')}
+                            {i18n.t(
+                                'By Default, all users receive a weekly digest for all favorites that they have subscribed to. You can opt-out from receiving  this weekly digest'
+                            )}
                         </Typography>
                     </div>
-            })
+                ),
+            }),
         ])
             .compact()
             .value()
     }
-
 
     getBooleanField({ name, label, disabled = false }) {
         const { settings } = this.state
@@ -195,7 +221,12 @@ class NotificationsForm extends React.Component {
             case 'loaded':
                 return (
                     <div className="notifications-form">
-                        <Typography gutterBottom variant="h5" component="h2" style={this.styles.title}>
+                        <Typography
+                            gutterBottom
+                            variant="h5"
+                            component="h2"
+                            style={this.styles.title}
+                        >
                             {i18n.t('PSI Notification Settings app')}
                         </Typography>
 
@@ -203,12 +234,21 @@ class NotificationsForm extends React.Component {
                             fields={this.getFirstSectionFields()}
                             onUpdateField={this.onUpdateField}
                         />
-                        <Typography gutterBottom variant="h6" component="h3" style={this.styles.subtitle1}>
+                        <Typography
+                            gutterBottom
+                            variant="h6"
+                            component="h3"
+                            style={this.styles.subtitle1}
+                        >
                             {i18n.t('DHIS Message forwarding')}
                         </Typography>
                         <Typography gutterBottom variant="subtitle1">
-                            {i18n.t('DHIS can forward some or all of the messages that are sent to your ')}
-                            <a href="/dhis-web-messaging">{i18n.t('DHIS messages inbox')}</a>
+                            {i18n.t(
+                                'DHIS can forward some or all of the messages that are sent to your '
+                            )}
+                            <a href="/dhis-web-messaging">
+                                {i18n.t('DHIS messages inbox')}
+                            </a>
                         </Typography>
                         <FormBuilder
                             fields={this.getLastSectionFields()}
